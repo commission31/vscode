@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./styles/App.css"
+import Menubar from "./components/Menubar";
+import Sidebar from "./components/Sidebar";
+import FileExplorer from "./components/FileExplorer";
+import Tabbar from "./components/Tabbar";
+import Textarea from "./components/Textarea"
+import Footer from "./components/Footer"
+import ThemeProvider from "./ThemeProvider";
+import { useState } from "react";
 function App() {
+  const [themeColor, setThemeColor]= useState("blue")
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider theme={themeColor}>
+        <Menubar changeTheme={setThemeColor}/>
+        <Sidebar/>
+        <FileExplorer/>
+        <Tabbar/>
+        <Textarea/>
+        <Footer/>
+      </ThemeProvider>
     </div>
   );
 }

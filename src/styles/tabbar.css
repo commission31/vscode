@@ -1,0 +1,12 @@
+
+.tab-list{
+    display: flex;
+    list-style: none;
+}
+.tab-list li{
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}

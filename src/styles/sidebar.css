@@ -1,0 +1,15 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+}
+.upper-list, .lower-list{
+    list-style: none;
+    font-size: 1.7em;
+}
+
+.upper-list li, .lower-list li{
+    margin: 10px 5px;
+    cursor: pointer;
+}

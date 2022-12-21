@@ -1,0 +1,41 @@
+.menubar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+}
+.menu-list img{
+    width: 20px;
+}
+.menu-list li{
+    margin: 5px 10px;
+    cursor: default;
+}
+.window-option{
+    display: flex;
+    list-style: none;
+}
+.theme-color{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.theme-color.light{
+    background-color: antiquewhite;
+}
+.theme-color.blue{
+    background-color: blue;
+}
+.theme-color.dark{
+    background-color: black;
+}
+.window-option li{
+    margin: 5px 10px;
+}
