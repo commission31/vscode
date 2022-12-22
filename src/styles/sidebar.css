@@ -1,8 +1,15 @@
+:root{
+    --sidebar-bg:  #003847;
+    --sidebar-color: #668891;
+    --sidebar-hover: #FFFFFF;
+}
 .sidebar{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 8px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-color);
 }
 .upper-list, .lower-list{
     list-style: none;
@@ -12,4 +19,7 @@
 .upper-list li, .lower-list li{
     margin: 10px 5px;
     cursor: pointer;
+}
+.upper-list li:hover, .lower-list li:hover{
+    color: var(--sidebar-hover);
 }

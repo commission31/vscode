@@ -1,25 +1,37 @@
+:root{
+    --menubar-bg: #0E2931;
+    --menubar-color: #d6d6d6;
+    --menubar-hover: #26393F;
+}
 .menubar{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 14px;
+    background-color: var(--menubar-bg);
+    color: var(--menubar-color);
 }
 .menu-list{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     list-style: none;
-    padding: 0;
 }
 .menu-list img{
-    width: 20px;
+    height: 16px;
 }
 .menu-list li{
-    margin: 5px 10px;
+    padding: 4px 10px;
+    border-radius: 5px;
     cursor: default;
+}
+.menu-list li:hover{
+    background-color: var(--menubar-hover);
 }
 .window-option{
     display: flex;
     list-style: none;
+    font-size: 18px;
 }
 .theme-color{
     width: 20px;
@@ -37,5 +49,5 @@
     background-color: black;
 }
 .window-option li{
-    margin: 5px 10px;
+    margin: 4px 10px;
 }

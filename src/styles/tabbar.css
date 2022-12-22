@@ -1,7 +1,16 @@
-
+:root{
+    --tabbar-bg: #004052;
+    --tabbar-color: #E2C085;
+    --tabbar-select: #002B37;
+}
+.tabbar{
+    background-color: var(--tabbar-bg);
+    color: var(--tabbar-color);
+}
 .tab-list{
     display: flex;
     list-style: none;
+    font-size: 14px;
 }
 .tab-list li{
     width: 130px;
@@ -9,4 +18,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
+    border-right: 1px solid var(--tabbar-select);
+    cursor: pointer;
 }

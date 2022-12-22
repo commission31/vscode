@@ -2,7 +2,7 @@ import {createContext, useContext} from "react";
 
 const themeContext = createContext()
 
-export function useUser(){
+export function useTheme(){
     return useContext(themeContext)
 }
 

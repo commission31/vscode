@@ -1,7 +1,17 @@
+:root{
+    --file-bg:#00212B;
+    --file-color:#ccc;
+    --file-hover:#003440;
+}
 .file-explorer{
+    background-color: var(--file-bg);
+    color: var(--file-color);
     padding: 5px;
 }
 .explorer-list {
     list-style: none;
     margin: 0 5px;
+}
+.explorer-list li:hover{
+    background-color: var(--file-hover);
 }
