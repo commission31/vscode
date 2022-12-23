@@ -2,6 +2,7 @@ import "../styles/tabbar.css"
 import {VscClose} from "react-icons/vsc";
 import { useTheme } from "../ThemeProvider";
 import { useState } from "react";
+import {useSelector, useDispatch } from 'react-redux'
 export default function Tabbar(){
 
     const currentTheme= useTheme()
@@ -34,15 +35,16 @@ export default function Tabbar(){
             return [...prevArr]
         })
     }
-    const [activeTab, setActiveTab]= useState(0)
 
+    const dispatch = useDispatch()
+    const activeTab = useSelector((state) => state.activeTab.active)
 
     const tabList = fileArr.map((file,index)=>{
-        return (<li key={index} onClick={()=>setActiveTab(index)} className={activeTab===index? "tab-active":""}>
+        return (<li key={index} onClick={()=>dispatch({type:"SELECT", payload:index})} className={activeTab===index? "tab-active":""}>
                     {file} <VscClose className="tab-close" onClick={()=>closeTab(index)}/>
                 </li>)
     })
-
+    
     return(
         <div className="tabbar">
             <ul className="tab-list">
