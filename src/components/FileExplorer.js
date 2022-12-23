@@ -3,20 +3,21 @@ import '../styles/fileexplorer.css'
 import { useTheme } from "../ThemeProvider";
 export default function FileExplorer(){
     const currentTheme= useTheme()
+    const themeStyle = document.documentElement.style
     if(currentTheme==="white"){
-        document.documentElement.style.setProperty("--file-bg","#F3F3F3");
-        document.documentElement.style.setProperty("--file-color","#906178");
-        document.documentElement.style.setProperty("--file-hover","#E4E6F1");
+        themeStyle.setProperty("--file-bg","#F3F3F3");
+        themeStyle.setProperty("--file-color","#906178");
+        themeStyle.setProperty("--file-hover","#E4E6F1");
     }
     else if (currentTheme==="blue"){
-        document.documentElement.style.setProperty("--file-bg","#00212B");
-        document.documentElement.style.setProperty("--file-color","#ccc");
-        document.documentElement.style.setProperty("--file-hover","#003440");
+        themeStyle.setProperty("--file-bg","#00212B");
+        themeStyle.setProperty("--file-color","#ccc");
+        themeStyle.setProperty("--file-hover","#003440");
     }
     else if (currentTheme==="dark"){
-        document.documentElement.style.setProperty("--file-bg","#252526");
-        document.documentElement.style.setProperty("--file-color","#C2CCAC");
-        document.documentElement.style.setProperty("--file-hover","#37373D");
+        themeStyle.setProperty("--file-bg","#252526");
+        themeStyle.setProperty("--file-color","#C2CCAC");
+        themeStyle.setProperty("--file-hover","#37373D");
     }
     return(
         <div className="file-explorer">

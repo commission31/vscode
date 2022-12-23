@@ -2,6 +2,7 @@
     --tabbar-bg: #004052;
     --tabbar-color: #E2C085;
     --tabbar-select: #002B37;
+    --tabbar-close: #1C3B43;
 }
 .tabbar{
     background-color: var(--tabbar-bg);
@@ -20,4 +21,16 @@
     padding: 10px 15px;
     border-right: 1px solid var(--tabbar-select);
     cursor: pointer;
+}
+.tab-active{
+    background-color: var(--tabbar-select);
+}
+.tab-close{
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.tab-close:hover{
+    background-color: var(--tabbar-close);
 }

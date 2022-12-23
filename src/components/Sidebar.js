@@ -4,17 +4,18 @@ import { useTheme } from "../ThemeProvider";
 export default function Sidebar(){
     
     const currentTheme= useTheme()
+    const themeStyle = document.documentElement.style
     if(currentTheme==="white"){
-        document.documentElement.style.setProperty("--sidebar-bg","#333333");
-        document.documentElement.style.setProperty("--sidebar-color","#858585");
+        themeStyle.setProperty("--sidebar-bg","#333333");
+        themeStyle.setProperty("--sidebar-color","#858585");
     }
     else if (currentTheme==="blue"){
-        document.documentElement.style.setProperty("--sidebar-bg","#003847");
-        document.documentElement.style.setProperty("--sidebar-color","#668891");
+        themeStyle.setProperty("--sidebar-bg","#003847");
+        themeStyle.setProperty("--sidebar-color","#668891");
     }
     else if (currentTheme==="dark"){
-        document.documentElement.style.setProperty("--sidebar-bg","#333333");
-        document.documentElement.style.setProperty("--sidebar-color","#858585");
+        themeStyle.setProperty("--sidebar-bg","#333333");
+        themeStyle.setProperty("--sidebar-color","#858585");
     }
     
 

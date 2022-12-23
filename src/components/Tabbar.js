@@ -1,31 +1,52 @@
 import "../styles/tabbar.css"
 import {VscClose} from "react-icons/vsc";
 import { useTheme } from "../ThemeProvider";
+import { useState } from "react";
 export default function Tabbar(){
 
     const currentTheme= useTheme()
+    const themeStyle= document.documentElement.style
     if(currentTheme==="white"){
-        document.documentElement.style.setProperty("--tabbar-bg","#ECECEC");
-        document.documentElement.style.setProperty("--tabbar-color","#96557C");
-        document.documentElement.style.setProperty("--tabbar-select","#ffffff");
+        themeStyle.setProperty("--tabbar-bg","#ECECEC");
+        themeStyle.setProperty("--tabbar-color","#96557C");
+        themeStyle.setProperty("--tabbar-select","#ffffff");
+        themeStyle.setProperty("--tabbar-close","#E9E9E9");
+
     }
     else if (currentTheme==="blue"){
-        document.documentElement.style.setProperty("--tabbar-bg","#004052");
-        document.documentElement.style.setProperty("--tabbar-color","#E2C085");
-        document.documentElement.style.setProperty("--tabbar-select","#002B37");
+        themeStyle.setProperty("--tabbar-bg","#004052");
+        themeStyle.setProperty("--tabbar-color","#E2C085");
+        themeStyle.setProperty("--tabbar-select","#002B37");
+        themeStyle.setProperty("--tabbar-close","#1C3B43");
     }
     else if (currentTheme==="dark"){
-        document.documentElement.style.setProperty("--tabbar-bg","#2D2D2D");
-        document.documentElement.style.setProperty("--tabbar-color","#E2C085");
-        document.documentElement.style.setProperty("--tabbar-select","#1E1E1E");
+        themeStyle.setProperty("--tabbar-bg","#2D2D2D");
+        themeStyle.setProperty("--tabbar-color","#E2C085");
+        themeStyle.setProperty("--tabbar-select","#1E1E1E");
+        themeStyle.setProperty("--tabbar-close","#313232");
     }
+
+    const [fileArr, setFileArr]= useState(["Home.html","About.css","Connect.js"])
+    function closeTab(index){
+        setFileArr((prevArr)=>{
+            prevArr.splice(index,1)
+            console.log(prevArr);
+            return [...prevArr]
+        })
+    }
+    const [activeTab, setActiveTab]= useState(0)
+
+
+    const tabList = fileArr.map((file,index)=>{
+        return (<li key={index} onClick={()=>setActiveTab(index)} className={activeTab===index? "tab-active":""}>
+                    {file} <VscClose className="tab-close" onClick={()=>closeTab(index)}/>
+                </li>)
+    })
 
     return(
         <div className="tabbar">
             <ul className="tab-list">
-                <li><p>Home.html</p> <VscClose/></li>
-                <li><p>About.css</p> <VscClose/></li>
-                <li><p>Connect.js</p> <VscClose/></li>
+                {tabList}
             </ul>
         </div>
     )

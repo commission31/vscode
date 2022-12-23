@@ -5,20 +5,21 @@ import { useTheme } from "../ThemeProvider";
 export default function Menubar({changeTheme}){
 
     const currentTheme= useTheme()
+    const themeStyle = document.documentElement.style
     if(currentTheme==="white"){
-        document.documentElement.style.setProperty("--menubar-bg","#DDDDDD");
-        document.documentElement.style.setProperty("--menubar-color","#616161");
-        document.documentElement.style.setProperty("--menubar-hover","#D2D2D2");
+        themeStyle.setProperty("--menubar-bg","#DDDDDD");
+        themeStyle.setProperty("--menubar-color","#616161");
+        themeStyle.setProperty("--menubar-hover","#D2D2D2");
     }
     else if (currentTheme==="blue"){
-        document.documentElement.style.setProperty("--menubar-bg","#0E2931");
-        document.documentElement.style.setProperty("--menubar-color","#668891");
-        document.documentElement.style.setProperty("--menubar-hover","#26393F");
+        themeStyle.setProperty("--menubar-bg","#0E2931");
+        themeStyle.setProperty("--menubar-color","#668891");
+        themeStyle.setProperty("--menubar-hover","#26393F");
     }
     else if (currentTheme==="dark"){
-        document.documentElement.style.setProperty("--menubar-bg","#3C3C3C");
-        document.documentElement.style.setProperty("--menubar-color","#A3A3A3");
-        document.documentElement.style.setProperty("--menubar-hover","#454646");
+        themeStyle.setProperty("--menubar-bg","#3C3C3C");
+        themeStyle.setProperty("--menubar-color","#A3A3A3");
+        themeStyle.setProperty("--menubar-hover","#454646");
     }
     
     return(
