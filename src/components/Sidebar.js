@@ -17,7 +17,6 @@ export default function Sidebar(){
         themeStyle.setProperty("--sidebar-bg","#333333");
         themeStyle.setProperty("--sidebar-color","#858585");
     }
-    
 
     return(
         <aside className="sidebar">

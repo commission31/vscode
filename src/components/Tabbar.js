@@ -1,7 +1,6 @@
 import "../styles/tabbar.css"
 import {VscClose} from "react-icons/vsc";
 import { useTheme } from "../ThemeProvider";
-import { useState } from "react";
 import {useSelector, useDispatch } from 'react-redux'
 export default function Tabbar(){
 
@@ -27,21 +26,18 @@ export default function Tabbar(){
         themeStyle.setProperty("--tabbar-close","#313232");
     }
 
-    const [fileArr, setFileArr]= useState(["Home.html","About.css","Connect.js"])
-    function closeTab(index){
-        setFileArr((prevArr)=>{
-            prevArr.splice(index,1)
-            console.log(prevArr);
-            return [...prevArr]
-        })
-    }
-
-    const dispatch = useDispatch()
+    const tabListArr = useSelector((state) => state.tabList)
     const activeTab = useSelector((state) => state.activeTab.active)
+    const dispatch = useDispatch()
 
-    const tabList = fileArr.map((file,index)=>{
-        return (<li key={index} onClick={()=>dispatch({type:"SELECT", payload:index})} className={activeTab===index? "tab-active":""}>
-                    {file} <VscClose className="tab-close" onClick={()=>closeTab(index)}/>
+    function closeTab(e,file){
+        e.stopPropagation()
+        dispatch({type:"REMOVE",payload:file})
+    }
+    
+    const tabList = tabListArr.map((file,index)=>{
+        return (<li key={index} onClick={()=>dispatch({type:"SELECT", payload:file})} className={activeTab===file? "tab-active":""}>
+                    {file} <VscClose className="tab-close" onClick={(e)=>closeTab(e,file)}/>
                 </li>)
     })
     

@@ -27,9 +27,22 @@ export default function FileExplorer(){
         themeStyle.setProperty("--file-select","#37373D");
     }
 
-    const [srcClick, setsrcClick] = useState(false)
+    const [srcClick, setsrcClick] = useState(true)
     const dispatch = useDispatch()
     const activeList = useSelector((state) => state.activeTab.active)
+    
+    function selectFile(file){
+        dispatch({type:"SELECT",payload:file})
+        dispatch({type:"ADD",payload:file})
+    }
+
+    const files=["Home.html","About.css","Connect.js"]
+    const fileList = files.map((file,index)=>{
+        return (<li key={index} onClick={()=>selectFile(file)} className={activeList===file? "list-select":""}>
+            {file}
+        </li>)
+    })
+
     return(
         <div className="file-explorer">
             <div><VscChevronDown/> VSCODE</div>
@@ -39,11 +52,12 @@ export default function FileExplorer(){
                 <li onClick={()=>setsrcClick(prev=>!prev)}> {srcClick?<VscChevronDown/>:<VscChevronRight/>} 
                     src
                 </li>
-                { srcClick && <ul className="src-list">
-                        <li onClick={()=>dispatch({type:"SELECT",payload:0})} className={activeList===0? "list-select":""}>Home.html</li>
-                        <li onClick={()=>dispatch({type:"SELECT",payload:1})} className={activeList===1? "list-select":""}>About.css</li>
-                        <li onClick={()=>dispatch({type:"SELECT",payload:2})} className={activeList===2? "list-select":""}>Connect.js</li>
-                    </ul>}
+                
+                {srcClick && 
+                    <ul className="src-list">
+                        {fileList}
+                    </ul>
+                }
             </ul>
         </div>
     )
